@@ -1,4 +1,4 @@
-// import {ajax} from "../asmex-os-packs"
+// import {ajax} from "asmex-os-packs"
 // const getData = ()=>{
 //   ajax.post({url: "https://homoeff.asmex.io/module/eff_api/products_day",
 //              data: {day:"2018-09-28"}
@@ -14,7 +14,7 @@ const getData = async ()=>{
     const response = await fetch("https://homoeff.asmex.io/module/eff_api/products_day",{
       method:"POST",
       headers:{"Content-type": "application/x-www-form-urlencoded"},
-      body:"day=2018-10-10"
+      body:"day=2018-12-01"
     }); 
     if(response.ok){
       const jsonResponse = await response.json();
