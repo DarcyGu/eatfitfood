@@ -62,7 +62,7 @@ class CartItem extends React.Component{
             {
                 id_item: false,
                 name: "none",
-                thumb: false
+                thumb: ""
             },
             {
                 id_item: 1,
@@ -104,7 +104,7 @@ class CartItem extends React.Component{
             {
                 id_item: false,
                 name: "None",
-                image: false
+                image: ""
             },
             {
                 id_item: 1,
