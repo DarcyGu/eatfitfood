@@ -441,15 +441,43 @@ nav li {
 	font-size: 1rem;
 }
 #title{
-	background: #f6f6f6;
+	background-image: url(https://eatfitfood.com.au/assets/images/banner/hero-eatfitfood.png);
+	background-attachment: fixed;
+	background-size: cover;
 	text-align: center;
-	padding: 2rem;
+	padding: 0 2rem;
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 40px;
+	height: 50vh;
+	position: relative;
+	display: grid;
+	align-content: center;
+}
+/* overlay */
+#title:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+/* Makes elements display above overlay. */
+#title * {
+	position: relative;
+}
+#title .caption {
+	color: white;
+}
+#title h1{
+	font-weight: 600;
+	font-size: 2rem;
 }
 #title p{
-	font-weight: 400;
-	font-size: 0.85rem;
+	color: white;
+	font-weight: 500;
+	font-size: 1rem;
 }
 @media only screen and (max-width: 730px) {
 	.nav{
@@ -554,7 +582,7 @@ nav li {
 	background: #f6f6f6;
 }
 .products-grid{
-	padding-bottom: 30px;
+	padding: 0 20px 30px 20px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
 	grid-auto-flow: row;
@@ -868,6 +896,9 @@ div .save-info {
 	/* text-align: center; */
 }
 @media only screen and (max-width: 1024px){
+	#title{
+		background-attachment: scroll;
+	}
 	.checkout-wrapper{
 		display: block;
 	}

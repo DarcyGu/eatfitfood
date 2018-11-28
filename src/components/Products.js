@@ -50,13 +50,15 @@ class Products extends React.Component {
 		return (
 			<div>
 				<div id="title">
-					<h1>A La Carte Menu</h1>
-					<p>
-						Order a combination of meals on the days you choose. Select from a wide variety of breakfasts, lunch, dinner, and more.
-					</p>
-					<p>
-						Meals are delivered on Monday, Wednesday & Friday (before 7am)
-					</p>
+					<div className="caption">
+						<h1>A La Carte Menu</h1>
+						<p>
+							Order a combination of meals on the days you choose. Select from a wide variety of breakfasts, lunch, dinner, and more.
+						</p>
+						<p>
+							Meals are delivered on Monday, Wednesday & Friday (before 7am)
+						</p>
+					</div>
 	    	</div>
 				<div className="menu-container">
 				  <Menu />
@@ -88,7 +90,7 @@ class Products extends React.Component {
 						{products("Dinner")}
 			        </div>
 			    </div>
-				<div>
+				<div className="grey-background">
 			        <h2>SPARKLE CUPCAKERY</h2>
 			        <div className="products-grid">
 						{products("Cupcake")}
