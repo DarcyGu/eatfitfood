@@ -2,6 +2,7 @@ import React from "react";
 import {Menu} from "./Menu";
 import AddToCart from "./AddToCart";
 import { connect } from "react-redux";
+import ProductModal from "./ProductModal";
 
 class Products extends React.Component {
 	constructor(props){
@@ -10,16 +11,21 @@ class Products extends React.Component {
 			showNutrition: "",
 			VGN: false,
 			GF: false,
-			DF: false
+			DF: false,
+			openProduct: ""
 		};
 		this.handleMouseOver = this.handleMouseOver.bind(this);
 		this.handleMouseOut = this.handleMouseOut.bind(this);
 		this.filter = this.filter.bind(this);
+		this.openProduct = this.openProduct.bind(this);
+		this.closeProduct = this.closeProduct.bind(this);		
 	}
-	handleMouseOver(e){
-		this.setState({
-			showNutrition: e.currentTarget.id
-		});
+	handleMouseOver(id){
+		return ()=>{
+			this.setState({
+				showNutrition: id
+			});
+		}
 	}
 	handleMouseOut(e){
 		this.setState({
@@ -31,14 +37,27 @@ class Products extends React.Component {
 			[e.target.value]: e.target.checked
 		});
 	}
+	openProduct(id){
+		return ()=>{
+			this.setState({
+				openProduct: id
+			});
+			this.props.closeCart();
+		}
+	}
+	closeProduct(){
+		this.setState({
+			openProduct: ""
+		});
+	}
 	render(){
 		const products = family => {
 			const filtered = this.props.products.filter(product => product.family===family&&(this.state.VGN?product.diets.includes("VGN"):true)&&(this.state.GF?product.diets.includes("GF"):true)&&(this.state.DF?product.diets.includes("DF"):true));
 			return filtered.length ? 	
 				filtered.map(product => {
 					return (
-							<div className="product-container" key={product.id_product} id={product.id_product} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
-								<img src={product.thumb_path} alt={product.description} />
+							<div className="product-container" key={product.id_product} onMouseOver={this.handleMouseOver(product.id_product)} onMouseOut={this.handleMouseOut}>
+								<img src={product.thumb_path} alt={product.description} onClick={this.openProduct(product.id_product)} />
 								<AddToCart product={product.id_product} name={product.description} nutrition={this.state.showNutrition===product.id_product} sizes={product.sizes} diets={product.diets}/>
 							</div>
 						);
@@ -49,6 +68,8 @@ class Products extends React.Component {
 		}; 
 		return (
 			<div>
+				{/* {this.state.openProduct ? <ProductModal product={this.state.openProduct} close={this.closeProduct} /> : null} */}
+				<ProductModal product={this.state.openProduct} close={this.closeProduct} />
 				<div id="title">
 					<div className="caption">
 						<h1>A La Carte Menu</h1>

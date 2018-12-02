@@ -18,7 +18,7 @@ export class Checkout extends React.Component{
             postal: "",
             phone: "",
             delivery: "",
-            save: false
+            save: true
         };
         this.saveInfo = this.saveInfo.bind(this);
         this.handleSave = this.handleSave.bind(this);

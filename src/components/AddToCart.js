@@ -47,7 +47,7 @@ class AddToCart extends React.Component{
                 <Nutrition display={this.props.nutrition} diets={this.props.diets} nutritional={this.props.sizes.filter(size=>size.size===this.state.size)[0].nutritional}/>
                 <p>{this.props.name}</p>
                 <div className="select">
-                    <select onChange={this.changeSize}>
+                    <select onChange={this.changeSize} value={this.state.size}>
                         {this.props.sizes.map(size=>{
                             return (
                                 <option key={size.size} value={size.size}>{size.size}: ${size.price.toFixed(2)}</option>

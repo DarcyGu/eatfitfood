@@ -98,6 +98,11 @@ class App extends Component {
         if(this.props.cart.length){
             count = this.props.cart.map(item=>item.quantity).reduce((a,b)=>a+b);
         }
+        const ProductsPage = (props) => {
+            return (
+                <Products closeCart={this.closeCart} {...props} />
+            )
+        }
     return (
     <div className="app">
         <Router>
@@ -123,8 +128,8 @@ class App extends Component {
             </ul> 
         </div>
         <Cart showCart={this.state.showCart} closeCart={this.closeCart} checkout={this.checkout}/>
-        <Route exact path="/" component={Products} />
-        <Route path="/products" component={Products} />
+        <Route exact path="/" render={ProductsPage} />
+        <Route path="/products" render={ProductsPage} />
         <Route path="/programs" component={Programs} />
         <Route path="/login" component={Login} />
         <Route path="/checkout" component={Checkout} />
