@@ -116,9 +116,8 @@ nav li {
 	width: 340px;
 	z-index: 9999;
 	background:white;
-	transition: all 0.2s linear;
+	transition: all 0.2s ease-out;
 	box-shadow: 0 2px 10px 0 rgba(40, 40, 40, 0.15);
-	transform: translate3d(0,0,0);
 }
 .cart .custom-slider {
 	box-shadow: none;
@@ -333,7 +332,7 @@ nav li {
 .minus, .add {
 	cursor: pointer;
 }
-.cart .quantity{
+.quantity-control .quantity{
 	border-left: none;
 	border-right: none;
 	background-color: transparent;
@@ -573,7 +572,7 @@ nav li {
 .checkbox input:checked +span::after{
 	transform: scale(0.8);
 }
-.products-container {
+.products-grid {
 	max-width: 1440px;
 	margin: 0 auto;
 }
@@ -681,6 +680,16 @@ nav li {
 	display: inline-block;
 	width: 3rem;
 }
+.diets div {
+	display: inline-block;
+	margin-right: 30px;
+	font-size: 0.9rem;
+}
+.diets img {
+	width: 45px;
+	margin: 0 auto;
+	display: block;
+}
 .diets span {
 	margin-top: 5px;
 	color: #92be48;
@@ -708,21 +717,51 @@ nav li {
 	background: rgba(256,256,256,0.9);
 	overflow: auto;
 	transition: all 0.3s ease;
+	-webkit-overflow-scrolling: touch;
 }
 .close-modal{
 	cursor: pointer;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	position: fixed;
 	top: 10px;
 	right: 20px;
 }
+.back-to-menu{
+	margin: 0 auto;
+	background: black;
+	color: white;
+	text-align: center;
+	width: 250px;
+	margin-bottom: 30px;
+	padding: 10px 0;
+	border-radius: 30px;
+	cursor: pointer;
+}
 .product-modal-grid{
-	padding: 50px 60px 60px 40px;
+	padding: 50px 60px 30px 60px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 40px;
 	max-width: 1440px;
 	margin: 0 auto;
+}
+@media only screen and (max-width: 800px){
+	.product-modal-grid{
+		display: block;
+		margin: 0 auto;
+		max-width: 500px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.product-modal-img{
+		margin-bottom: 20px;
+	}
+	.product-modal-grid h2{
+		font-size: 1.4rem !important;
+	}
+	.close-modal{
+		font-size: 2rem;
+	}
 }
 .product-modal-grid h2{
 	margin: 0;
@@ -733,7 +772,7 @@ nav li {
 	margin-bottom: 10px;
 	font-size: 1.1rem;
 }
-.product-modal-grid img{
+.product-modal-img{
 	width: 100%;
 }
 .product-modal-grid .title-divider {
@@ -751,8 +790,10 @@ nav li {
 	padding: 5px 0;
 	cursor: pointer;
 	border: 1px solid black;
-	width: 30%;
+	width: 40%;
+	max-width: 200px;
 	text-align: center;
+	min-width: 140px;
 }
 .size-selector span:first-child{
 	border-top-left-radius: 20px;
@@ -789,7 +830,7 @@ nav li {
 	background: #fafafa;
 }
 .product-modal select{
-	width: 210px;
+	width: 200px;
     height: 30px;
     background: white;
     border: 1px solid #b5b5b5;
@@ -801,7 +842,11 @@ nav li {
     -moz-appearance: none;
     appearance: none;
     padding-left: 10px;
-    margin-right: 3px;
+	margin-right: 6px;
+	border-radius: 0%;
+}
+.product-modal .quantity-control {
+	display: inline-block;
 }
 .checkout-banner {
 	background: url("https://eatfitfood.com.au/assets/images/banner/checkout-banner.jpg") center no-repeat;

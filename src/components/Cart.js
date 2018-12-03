@@ -57,12 +57,12 @@ class Cart extends React.Component{
                 <div key={index} className="cart-item">
                     <div className="item-name">{productName(item.product_id)}</div>
                     <div className="item-grid">
-                    <span className="item-size">{item.size}: ${price}</span>
-                    <div className="quantity-control">
-                        <span className="minus" onClick={()=>{this.props.dispatch(deleteFromCart(item.product_id,item.size))}}><i className="fa fa-minus"></i></span>
-                        <span className="quantity">{item.quantity} </span>
-                        <span className="add" onClick={()=>{this.props.dispatch(addToCart(item.product_id,item.size))}}><i className="fa fa-plus"></i></span>
-                    </div>
+                        <span className="item-size">{item.size}: ${price}</span>
+                        <div className="quantity-control">
+                            <span className="minus" onClick={()=>{this.props.dispatch(deleteFromCart(item.product_id,item.size))}}><i className="fa fa-minus"></i></span>
+                            <span className="quantity">{item.quantity} </span>
+                            <span className="add" onClick={()=>{this.props.dispatch(addToCart(item.product_id,item.size))}}><i className="fa fa-plus"></i></span>
+                        </div>
                     </div>
                     {/* CUPCAKE */}
                     <CartItem custom={productCustom(item.product_id)} productName={productName(item.product_id)}/>
