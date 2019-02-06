@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "asmex-os-packs": "git+ssh://git@bitbucket.org/asmex/asmex-os-packs.git",
-    "croppie": "^2.6.2",
+    "croppie": "2.6.2",
     "gh-pages": "^1.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

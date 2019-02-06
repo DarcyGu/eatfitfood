@@ -15,7 +15,9 @@ class CropImage extends React.Component{
             viewport: { width: 144, height: 144, type: "circle" },
             boundary: { width: 220, height: 220 }
         });
-        this.c.bind({url:this.props.url});
+        if(this.props.url){
+            this.c.bind({url:this.props.url});
+        }
     }
     componentDidUpdate(prevProps){
         if(prevProps.url!==this.props.url){
